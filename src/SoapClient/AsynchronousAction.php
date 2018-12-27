@@ -32,7 +32,7 @@ namespace SoftLayer\SoapClient;
 use SoftLayer\SoapClient;
 
 /**
- * Support for asynchronous SoftLayer SOAP API calls
+ * Support for asynchronous SoftLayer SOAP API calls.
  *
  * PHP SOAP calls operate in a send -> receive style of transmission. Response
  * time for a call is dependent on the latency between the SOAP client and SOAP
@@ -113,44 +113,45 @@ use SoftLayer\SoapClient;
  * @author      SoftLayer Technologies, Inc. <sldn@softlayer.com>
  * @copyright   Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
  * @license     http://sldn.softlayer.com/article/License
+ *
  * @see         SoapClient
  */
 class AsynchronousAction
 {
     /**
-     * The SoftLayer SOAP client making an asynchronous call
+     * The SoftLayer SOAP client making an asynchronous call.
      *
      * @var SoapClient
      */
     protected $_soapClient;
 
     /**
-     * The name of the function we're calling
+     * The name of the function we're calling.
      *
      * @var string
      */
     protected $_functionName;
 
     /**
-     * A socket connection to the SoftLayer SOAP API
+     * A socket connection to the SoftLayer SOAP API.
      *
      * @var resource
      */
     protected $_socket;
 
     /**
-     * Perform an asynchgronous SoftLayer SOAP call
+     * Perform an asynchgronous SoftLayer SOAP call.
      *
      * Create a raw socket connection to the URL specified by the
      * SoapClient class and send SOAP HTTP headers and request XML to
      * that socket. Throw exceptions if we're unable to make the socket
      * connection or send data to that socket.
      *
-     * @param SoapClient $soapClient The SoftLayer SOAP client making the asynchronous call.
-     * @param string $functionName The name of the function we're calling.
-     * @param string $request The full XML SOAP request we wish to make.
-     * @param string $location The URL of the web service we wish to call.
-     * @param string $action The value of the HTTP SOAPAction header in our SOAP call.
+     * @param SoapClient $soapClient   the SoftLayer SOAP client making the asynchronous call
+     * @param string     $functionName the name of the function we're calling
+     * @param string     $request      the full XML SOAP request we wish to make
+     * @param string     $location     the URL of the web service we wish to call
+     * @param string     $action       the value of the HTTP SOAPAction header in our SOAP call
      */
     public function __construct($soapClient, $functionName, $request, $location, $action)
     {
@@ -159,42 +160,42 @@ class AsynchronousAction
         $this->_soapClient = $soapClient;
         $this->_functionName = $functionName;
 
-        $protocol   = $matches[1];
-        $host       = $matches[2];
-        $endpoint   = $matches[3];
+        $protocol = $matches[1];
+        $host = $matches[2];
+        $endpoint = $matches[3];
 
         $headers = array(
-            'POST ' . $endpoint . ' HTTP/1.1',
-            'Host: ' . $host,
-            'User-Agent: PHP-SOAP/' . phpversion(),
+            'POST '.$endpoint.' HTTP/1.1',
+            'Host: '.$host,
+            'User-Agent: PHP-SOAP/'.phpversion(),
             'Content-Type: text/xml; charset=utf-8',
-            'SOAPAction: "' . $action . '"',
-            'Content-Length: ' . strlen($request),
+            'SOAPAction: "'.$action.'"',
+            'Content-Length: '.strlen($request),
             'Connection: close',
         );
 
-        if ($protocol == 'https') {
-            $host = 'ssl://' . $host;
+        if ('https' === $protocol) {
+            $host = 'ssl://'.$host;
             $port = 443;
         } else {
             $port = 80;
         }
 
-        $data = implode("\r\n", $headers) . "\r\n\r\n" . $request . "\r\n";
+        $data = implode("\r\n", $headers)."\r\n\r\n".$request."\r\n";
         $this->_socket = fsockopen($host, $port, $errorNumber, $errorMessage);
 
-        if ($this->_socket === false) {
+        if (false === $this->_socket) {
             $this->_socket = null;
-            throw new \Exception('Unable to make an asynchronous SoftLayer API call: ' . $errorNumber . ': ' . $errorMessage);
+            throw new \Exception('Unable to make an asynchronous SoftLayer API call: '.$errorNumber.': '.$errorMessage);
         }
 
-        if (fwrite($this->_socket, $data) === false) {
+        if (false === fwrite($this->_socket, $data)) {
             throw new \Exception('Unable to write data to an asynchronous SoftLayer API call.');
         }
     }
 
     /**
-     * Process and return the results of an asyncrhonous SoftLayer API call
+     * Process and return the results of an asyncrhonous SoftLayer API call.
      *
      * Read data from our socket and process the raw SOAP result from the
      * SoapClient instance that made the asynchronous call. wait()
@@ -221,7 +222,7 @@ class AsynchronousAction
      */
     public function __destruct()
     {
-        if ($this->_socket != null) {
+        if ($this->_socket) {
             fclose($this->_socket);
         }
     }

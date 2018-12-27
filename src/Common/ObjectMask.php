@@ -67,13 +67,14 @@ namespace SoftLayer\Common;
  * @author      SoftLayer Technologies, Inc. <sldn@softlayer.com>
  * @copyright   Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
  * @license     http://sldn.softlayer.com/article/License
+ *
  * @see         SoapClient::setObjectMask()
  * @see         XmlRpcClient::setObjectMask()
  */
 class ObjectMask
 {
     /**
-     * Define an object mask value
+     * Define an object mask value.
      *
      * @param string $var
      */

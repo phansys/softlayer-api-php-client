@@ -26,7 +26,6 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
 use SoftLayer\Common\ObjectMask;
 use SoftLayer\SoapClient;
 use SoftLayer\XmlRpcClient;
@@ -37,10 +36,10 @@ use SoftLayer\XmlRpcClient;
  * If you wish to use the XML-RPC API then replace mentions of
  * SoapClient with XmlRpcClient.
  */
-$files = [
+$files = array(
     __DIR__.'/vendor/autoload.php',
     __DIR__.'/../../autoload.php',
-];
+);
 
 $autoload = false;
 foreach ($files as $file) {
@@ -74,7 +73,7 @@ $apiKey = 'set me too';
 
 /**
  * Usage:
- * SoapClient::getClient([API Service], <object id>, [username], [API key]);
+ * SoapClient::getClient([API Service], <object id>, [username], [API key]);.
  *
  * API Service: The name of the API service you wish to connect to.
  * id:          An optional id to initialize your API service with, if you're
@@ -85,7 +84,7 @@ $apiKey = 'set me too';
  */
 $client = SoapClient::getClient('SoftLayer_Account', null, $apiUsername, $apiKey);
 
-/**
+/*
  * Once your client object is created you can call API methods for that service
  * directly against your client object. A call may throw an exception on error,
  * so it's best to try your call and catch exceptions.
@@ -124,7 +123,7 @@ try {
     $ticket = $client->getObject();
     print_r($ticket);
 } catch (\Exception $e) {
-    die('Unable to retrieve ticket record: ' . $e->getMessage());
+    die('Unable to retrieve ticket record: '.$e->getMessage());
 }
 
 // Now update the ticket.
@@ -133,7 +132,7 @@ $update->entry = 'Hello!';
 
 try {
     $update = $client->addUpdate($update);
-    echo "Updated ticket 123456. The new update's id is " . $update[0]->id . '.';
+    echo "Updated ticket 123456. The new update's id is ".$update[0]->id.'.';
 } catch (\Exception $e) {
-    die('Unable to update ticket: ' . $e->getMessage());
+    die('Unable to update ticket: '.$e->getMessage());
 }
