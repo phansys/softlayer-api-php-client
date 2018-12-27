@@ -1,15 +1,6 @@
+dist: precise
 language: php
 warnings_are_errors: false
-
-php:
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - nightly
 
 env:
   global:
@@ -21,6 +12,12 @@ matrix:
     - php: 5.3
     - php: 5.3
       env: COMPOSER_FLAGS="--prefer-lowest"
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
   allow_failures:
     - php: nightly
 
