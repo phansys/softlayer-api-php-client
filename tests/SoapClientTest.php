@@ -37,12 +37,13 @@ use PHPUnit\Framework\TestCase;
  */
 class SoapClientTest extends TestCase
 {
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage There was an error querying the SoftLayer API: Invalid API token.
+     */
     public function testSoapClientException()
     {
         $client = SoapClient::getClient('SoftLayer_Ticket', 123456, 'apiUsername', 'apiKey');
-
-        $this->expectException('Exception');
-        $this->expectExceptionMessage('There was an error querying the SoftLayer API: Invalid API token.');
 
         $client->getObject();
     }
