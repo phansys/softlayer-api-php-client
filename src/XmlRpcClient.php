@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * Copyright (c) 2009 - 2010, SoftLayer Technologies, Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without

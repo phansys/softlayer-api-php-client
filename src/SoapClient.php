@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * Copyright (c) 2009 - 2010, SoftLayer Technologies, Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -225,7 +226,7 @@ class SoapClient extends \SoapClient
      * @param string $serviceName The name of the SoftLayer API service you wish to query
      * @param int    $id          An optional object id if you're instantiating a particular SoftLayer API object. Setting an id defines this client's initialization parameter header.
      * @param string $username    an optional API username if you wish to bypass SoapClient's built-in username
-     * @param string $apiKey    an optional API key if you wish to bypass SoapClient's built-in API key
+     * @param string $apiKey      an optional API key if you wish to bypass SoapClient's built-in API key
      * @param string $endpointUrl The API endpoint base URL you wish to connect to. Set this to SoapClient::API_PRIVATE_ENDPOINT to connect via SoftLayer's private network.
      *
      * @return SoapClient

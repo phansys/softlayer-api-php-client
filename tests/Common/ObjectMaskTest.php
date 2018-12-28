@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * Copyright (c) 2009 - 2010, SoftLayer Technologies, Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,8 +30,8 @@
 
 namespace SoftLayer\Tests\Commmon;
 
-use SoftLayer\Common\ObjectMask;
 use PHPUnit\Framework\TestCase;
+use SoftLayer\Common\ObjectMask;
 
 /**
  * @author Javier Spagnoletti <phansys@gmail.com>

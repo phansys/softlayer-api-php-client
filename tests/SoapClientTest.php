@@ -1,5 +1,6 @@
 <?php
-/**
+
+/*
  * Copyright (c) 2009 - 2010, SoftLayer Technologies, Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,8 +30,8 @@
 
 namespace SoftLayer\Tests;
 
-use SoftLayer\SoapClient;
 use PHPUnit\Framework\TestCase;
+use SoftLayer\SoapClient;
 
 /**
  * @author Javier Spagnoletti <phansys@gmail.com>
@@ -38,7 +39,7 @@ use PHPUnit\Framework\TestCase;
 class SoapClientTest extends TestCase
 {
     /**
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionMessage There was an error querying the SoftLayer API: Invalid API token.
      */
     public function testSoapClientException()
