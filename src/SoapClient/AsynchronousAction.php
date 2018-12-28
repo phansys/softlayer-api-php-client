@@ -52,7 +52,7 @@ use SoftLayer\SoapClient;
  * 1) The SoapClient class knows to make an asynchronous call when the
  * method called ends with "Async". For example, to make a standard call to the
  * method getObject() you would execute $client->geObject(). It's asynchronous
- * counterpart is execued with the code $client->getObjectAsync(). Once the
+ * counterpart is executed with the code $client->getObjectAsync(). Once the
  * asynchronous call is made the results of your API command are sent to this
  * classes' socket property.
  *
@@ -62,7 +62,7 @@ use SoftLayer\SoapClient;
  * SoapClient for processing. For example if you wish to retrieve the
  * results of the method getObject() execute the following statements:
  *
- * $result = $client->getObjectAsync(); // Make the call and start geting data back.
+ * $result = $client->getObjectAsync(); // Make the call and start getting data back.
  * $result = $result->wait(); // Return the results of the API call
  *
  * To chain multiple asynchronous requests together call multiple Async requests
@@ -89,7 +89,7 @@ use SoftLayer\SoapClient;
  *     $vlanSpanResult = $client->setVlanSpanAsync(true);
  *
  *     // The three requests are now processing in parallel. Use the wait()
- *     // method to retrieve the resuls of our requests. The wait time involved
+ *     // method to retrieve the results of our requests. The wait time involved
  *     // is roughly the same time as the longest API call.
  *     $account = $account->wait();
  *     $nextInvoicePdf = $nextInvoicePdf->wait();
@@ -141,7 +141,7 @@ class AsynchronousAction
     protected $_socket;
 
     /**
-     * Perform an asynchgronous SoftLayer SOAP call.
+     * Perform an asynchronous SoftLayer SOAP call.
      *
      * Create a raw socket connection to the URL specified by the
      * SoapClient class and send SOAP HTTP headers and request XML to
@@ -196,11 +196,11 @@ class AsynchronousAction
     }
 
     /**
-     * Process and return the results of an asyncrhonous SoftLayer API call.
+     * Process and return the results of an asynchronous SoftLayer API call.
      *
      * Read data from our socket and process the raw SOAP result from the
      * SoapClient instance that made the asynchronous call. wait()
-     * *must* be called in order to recieve the results from your API call.
+     * *must* be called in order to receive the results from your API call.
      *
      * @return object
      */

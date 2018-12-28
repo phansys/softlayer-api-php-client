@@ -37,12 +37,12 @@ namespace SoftLayer\Common;
  * API calls. This one is a bit easier to use. For example, to declare a new
  * object mask using \stdClass enter:
  *
- * $objectMask = new StdClass();
- * $objectMask->datacenter = new StdClass();
- * $objectMask->serverRoom = new StdClass();
- * $objectMask->provisionDate = new StdClass();
- * $objectMask->softwareComponents = new StdClass();
- * $objectMask->softwareComponents->passwords = new StdClass();
+ * $objectMask = new \stdClass();
+ * $objectMask->datacenter = new \stdClass();
+ * $objectMask->serverRoom = new \stdClass();
+ * $objectMask->provisionDate = new \stdClass();
+ * $objectMask->softwareComponents = new \stdClass();
+ * $objectMask->softwareComponents->passwords = new \stdClass();
  *
  * Building an object mask using ObjectMask is a bit easier to
  * type:
@@ -57,7 +57,7 @@ namespace SoftLayer\Common;
  * making your SoftLayer API calls.
  *
  * For more on object mask usage in the SoftLayer API please see
- * http://sldn.softlayer.com/article/Using_Object_Masks_in_the_SoftLayer_API .
+ * http://sldn.softlayer.com/article/Using_Object_Masks_in_the_SoftLayer_API.
  *
  * The most up to date version of this library can be found on the SoftLayer
  * github public repositories: http://github.com/softlayer/ . Please post to

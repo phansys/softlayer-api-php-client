@@ -44,9 +44,9 @@ use SoftLayer\Common\ObjectMask;
  * in the SoftLayer customer portal if you have any questions regarding use of
  * this library.
  *
- * @author      SoftLayer Technologies, Inc. <sldn@softlayer.com>
- * @copyright   Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
- * @license     http://sldn.softlayer.com/article/License
+ * @author     SoftLayer Technologies, Inc. <sldn@softlayer.com>
+ * @copyright  Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
+ * @license    http://sldn.softlayer.com/article/License
  *
  * @see        http://sldn.softlayer.com/article/The_SoftLayer_API The SoftLayer API
  */
@@ -170,7 +170,7 @@ class XmlRpcClient
      * @param string $serviceName The name of the SoftLayer API service you wish to query
      * @param int    $id          An optional object id if you're instantiating a particular SoftLayer API object. Setting an id defines this client's initialization parameter header.
      * @param string $username    an optional API username if you wish to bypass XmlRpcClient's built-in username
-     * @param string $username    an optional API key if you wish to bypass XmlRpcClient's built-in API key
+     * @param string $apiKey      an optional API key if you wish to bypass XmlRpcClient's built-in API key
      * @param string $endpointUrl The API endpoint base URL you wish to connect to. Set this to XmlRpcClient::API_PRIVATE_ENDPOINT to connect via SoftLayer's private network.
      *
      * @return XmlRpcClient

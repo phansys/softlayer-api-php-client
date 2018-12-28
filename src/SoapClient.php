@@ -50,12 +50,12 @@ use SoftLayer\SoapClient\AsynchronousAction;
  * in the SoftLayer customer portal if you have any questions regarding use of
  * this library.
  *
- * @author      SoftLayer Technologies, Inc. <sldn@softlayer.com>
- * @copyright   Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
- * @license     http://sldn.softlayer.com/article/License
+ * @author     SoftLayer Technologies, Inc. <sldn@softlayer.com>
+ * @copyright  Copyright (c) 2009 - 2010, Softlayer Technologies, Inc
+ * @license    http://sldn.softlayer.com/article/License
  *
  * @see        http://sldn.softlayer.com/article/The_SoftLayer_API The SoftLayer API
- * @see         AsynchronousAction
+ * @see        AsynchronousAction
  */
 class SoapClient extends \SoapClient
 {
@@ -464,7 +464,7 @@ class SoapClient extends \SoapClient
      * Process a SOAP request.
      *
      * We've overwritten the PHP \SoapClient's __doRequest() to allow processing
-     * asynchronous SOAP calls. If an asynchronous call was deected in the
+     * asynchronous SOAP calls. If an asynchronous call was detected in the
      * __call() method then send processing to the
      * AsynchronousAction class. Otherwise use the
      * \SoapClient's built-in __doRequest() method. The results of this method
@@ -505,8 +505,8 @@ class SoapClient extends \SoapClient
      * Process the results of an asynchronous call.
      *
      * The AsynchronousAction class uses
-     * handleAsyncResult() to return it's call resuls back to this classes'
-     * __call() method for post-pocessing.
+     * handleAsyncResult() to return it's call results back to this classes'
+     * __call() method for post-processing.
      *
      * @param string $functionName the name of the SOAP method called
      * @param string $result       The raw SOAP XML output from a SOAP call
